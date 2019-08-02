@@ -2,9 +2,9 @@
 My attempt at reverse engineering the Govee H6113 RGB lighting strips BLE commands.
 
 ------
-## A Message to Govee
+# A Message to Govee
 
->In the U.S., Section 103(f) of the Digital Millennium Copyright Act (DMCA) (17 USC § 1201 (f) - Reverse Engineering) specifically states that it is legal to reverse engineer and circumvent the protection to achieve interoperability between computer programs (such as information transfer between applications). Interoperability is defined in paragraph 4 of Section 103(f).
+>In the U.S., Section 103(f) of the Digital Millennium Copyright Act (DMCA) [(17 USC § 1201 (f) - Reverse Engineering)](https://www.law.cornell.edu/uscode/text/17/1201) specifically states that it is legal to reverse engineer and circumvent the protection to achieve interoperability between computer programs (such as information transfer between applications). Interoperability is defined in paragraph 4 of Section 103(f).
 >
 >It is also often lawful to reverse-engineer an artifact or process as long as it is obtained legitimately. If the software is patented, it doesn't necessarily need to be reverse-engineered, as patents require a public disclosure of invention. It should be mentioned that, just because a piece of software is patented, that does not mean the entire thing is patented; there may be parts that remain undisclosed.
 
@@ -13,7 +13,7 @@ Govee I love your product, and I mean no harm in releasing this information. I o
 
 With all that out of the way, on to the documentation!
 
-## My Findings
+# My Findings
 
 I have only tested this on the Govee H6113 so I am unsure if these packets or UUID's work for anything else.
 
