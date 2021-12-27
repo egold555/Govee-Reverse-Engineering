@@ -14,3 +14,8 @@ Govee we love your products! I initally decided to publish my findings, and prot
 TL;DR, __please don't sue me, or DMCA this repo__. If you wish for me to take it down, __please email me or leave a issue on this repo stating that you would like it to be removed, and I will happily do so__.
 
 With all that out of the way, on to the documentation!
+
+# Products
+| Product | Documentation                   | Vendor Link |
+|---------|---------------------------------|-------------|
+| H6113   | [Click Here](products/H6113.md) |             |
