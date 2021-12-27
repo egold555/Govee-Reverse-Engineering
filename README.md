@@ -19,4 +19,4 @@ With all that out of the way, on to the documentation!
 | Product | Documentation                   | Vendor Link |
 |---------|---------------------------------|-------------|
 | H6113   | [Click Here](products/H6113.md) |             |
-| H6113   | [Click Here](products/H6127.md) |             |
+| H6127   | [Click Here](products/H6127.md) |             |
