@@ -18,6 +18,7 @@ With all that out of the way, on to the documentation!
 # Products
 | Product | Documentation                   | Vendor Link |
 |---------|---------------------------------|-------------|
+| H6072   | [Click Here](products/H6072.md) |             |
 | H6113   | [Click Here](products/H6113.md) |             |
 | H6127   | [Click Here](products/H6127.md) |             |
 | H6199   | [Click Here](products/H6199.md) |             |
