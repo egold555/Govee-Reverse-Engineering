@@ -11,7 +11,7 @@ A place to store information about reverse enginering Govee's products, and docu
 
 Govee we love your products! I initally decided to publish my findings, and protocol reverse engineering so that anyone else who is looking to do the same might have a place to start. As hackers, we wanted to add more functionality to your devices, and controll them not just from the app.
 
-TL;DR, __please don't sue me, or DMCA this repo__. If you wish for me to take it down, __please email me or leave a issue on this repo stating that you would like it to be removed, and I will happily do so__.
+TL;DR, __please don't sue me, any contributors, or DMCA this repo__. If you wish for me to take it down, __please email me or leave a issue on this repo stating that you would like it to be removed, and I will happily do so__.
 
 With all that out of the way, on to the documentation!
 
@@ -23,3 +23,6 @@ With all that out of the way, on to the documentation!
 | H6113   | [Click Here](products/H6113.md) |             |
 | H6127   | [Click Here](products/H6127.md) |             |
 | H6199   | [Click Here](products/H6199.md) |             |
+
+# Contributing
+Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
