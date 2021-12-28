@@ -18,11 +18,11 @@ With all that out of the way, on to the documentation!
 # Products
 | Product | Documentation                   | Vendor Link |
 |---------|---------------------------------|-------------|
-| H6053   | [Click Here](products/H6053.md) |             |
-| H6072   | [Click Here](products/H6072.md) |             |
-| H6113   | [Click Here](products/H6113.md) |             |
-| H6127   | [Click Here](products/H6127.md) |             |
-| H6199   | [Click Here](products/H6199.md) |             |
+| H6053   | [Click Here](Products/H6053.md) |             |
+| H6072   | [Click Here](Products/H6072.md) |             |
+| H6113   | [Click Here](Products/H6113.md) |             |
+| H6127   | [Click Here](Products/H6127.md) |             |
+| H6199   | [Click Here](Products/H6199.md) |             |
 
 # Contributing
 Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
