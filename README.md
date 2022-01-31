@@ -2,7 +2,7 @@
 A place to store information about reverse enginering Govee's products, and documenting their protocols
 
 ------
-# A Message to Govee
+## A Message to Govee
 
 >In the U.S., Section 103(f) of the Digital Millennium Copyright Act (DMCA) [(17 USC § 1201 (f) - Reverse Engineering)](https://www.law.cornell.edu/uscode/text/17/1201) specifically states that it is legal to reverse engineer and circumvent the protection to achieve interoperability between computer programs (such as information transfer between applications). Interoperability is defined in paragraph 4 of Section 103(f).
 >
@@ -15,7 +15,7 @@ TL;DR, __please don't sue me, any contributors, or DMCA this repo__. If you wish
 
 With all that out of the way, on to the documentation!
 
-# Products
+## Products
 | Product | Documentation                   | Vendor Link |
 |---------|---------------------------------|-------------|
 | H6053   | [Click Here](Products/H6053.md) |             |
@@ -24,5 +24,5 @@ With all that out of the way, on to the documentation!
 | H6127   | [Click Here](Products/H6127.md) |             |
 | H6199   | [Click Here](Products/H6199.md) |             |
 
-# Contributing
+## Contributing
 Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
