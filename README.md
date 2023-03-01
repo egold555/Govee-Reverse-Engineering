@@ -18,6 +18,7 @@ With all that out of the way, on to the documentation!
 ## Products
 | Product | Documentation                   | Vendor Link |
 |---------|---------------------------------|-------------|
+| H5080   | [Click Here](Products/H5080.md) |             |
 | H6001   | [Click Here](Products/H6001.md) |             |
 | H6053   | [Click Here](Products/H6053.md) |             |
 | H6072   | [Click Here](Products/H6072.md) |             |
