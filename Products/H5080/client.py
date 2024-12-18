@@ -13,6 +13,7 @@
 #
 
 import asyncio
+import contextlib
 import dataclasses
 import logging
 import typing as T
@@ -63,6 +64,7 @@ class DeviceData:
     """
 
     cfg: DeviceConfig
+    device_lock: asyncio.Lock
     ble_device: T.Optional[BLEDevice] = None
     switch: T.Optional[Switch] = None
     state: T.Optional[bool] = None
@@ -85,16 +87,41 @@ def ha_switch_callback(
         set_state(onoff)
 
 
-async def set_device_state(data: DeviceData, onoff: bool):
+async def set_device_state(data: DeviceData, onoff: bool, lock: asyncio.Lock):
 
-    if data.ble_device is None:
-        return
+    async with contextlib.AsyncExitStack() as stack:
 
-    logger.info(f"set_device_state: %s on=%s", data.cfg.name, onoff)
+        # Only allow a single connection at once
+        for i in range(3):
+            if i != 0:
+                await asyncio.sleep(3)
 
-    # Connect
-    async with BleakClient(data.ble_device) as client:
-        logger.info(f"Connected to device.name ({client.address})")
+            async with (lock, data.device_lock):
+                logger.info(
+                    f"set_device_state: %s on=%s attempt=%d",
+                    data.cfg.name,
+                    onoff,
+                    i,
+                )
+
+                if data.ble_device is None:
+                    logger.warning("attempt %d failed: device not found", i)
+                    continue
+
+                try:
+
+                    client = BleakClient(data.ble_device)
+                    await stack.enter_async_context(client)
+                    break
+                except Exception as e:
+                    # seems to be lots of ways this can fail
+                    logger.warning("attempt %d failed: %s", i, e)
+                    pass
+        else:
+            logger.error("set_device_state for %s failed", data.cfg.name)
+            return
+
+        logger.info(f"Connected to {data.cfg.name} ({client.address})")
 
         # events to control execution flow
         on_auth_ready = asyncio.Event()
@@ -126,7 +153,9 @@ async def set_device_state(data: DeviceData, onoff: bool):
             data.switch.off()
 
 
-def make_setstate_fn(loop: asyncio.AbstractEventLoop, data: DeviceData):
+def make_setstate_fn(
+    loop: asyncio.AbstractEventLoop, data: DeviceData, lock: asyncio.Lock
+):
 
     def _set_device_state_done(f):
         try:
@@ -135,7 +164,7 @@ def make_setstate_fn(loop: asyncio.AbstractEventLoop, data: DeviceData):
             logger.exception("set_device_state for %s failed", data.cfg.name)
 
     def _set_device_threadsafe(onoff: bool):
-        f = asyncio.run_coroutine_threadsafe(set_device_state(data, onoff), loop)
+        f = asyncio.run_coroutine_threadsafe(set_device_state(data, onoff, lock), loop)
 
         f.add_done_callback(_set_device_state_done)
 
@@ -156,14 +185,17 @@ async def main():
     #
 
     loop = asyncio.get_running_loop()
+    lock = asyncio.Lock()
 
     for devinfo in config.devices:
         sinfo = SwitchInfo(name=devinfo.name)
         settings = Settings(mqtt=mqtt_settings, entity=sinfo)
-        data = DeviceData(devinfo)
+        data = DeviceData(devinfo, asyncio.Lock())
         devices[devinfo.uid] = data
 
-        data.switch = Switch(settings, ha_switch_callback, make_setstate_fn(loop, data))
+        data.switch = Switch(
+            settings, ha_switch_callback, make_setstate_fn(loop, data, lock)
+        )
 
     #
     # poll loop
@@ -171,12 +203,13 @@ async def main():
 
     stop_event = asyncio.Event()
 
-    def scanner_callback(device: BLEDevice, adv: AdvertisementData):
+    async def scanner_callback(device: BLEDevice, adv: AdvertisementData):
         ddata = devices.get(adv.local_name or "")
         if ddata is None:
             return
 
-        ddata.ble_device = device
+        async with ddata.device_lock:
+            ddata.ble_device = device
 
         for _, mfr_data in adv.manufacturer_data.items():
             is_on = mfr_data[-1] == 0x01
@@ -195,7 +228,7 @@ async def main():
 
             break
 
-    async with BleakScanner(scanner_callback, passive=True) as scanner:
+    async with BleakScanner(scanner_callback) as scanner:
         await stop_event.wait()
 
 
