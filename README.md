@@ -30,4 +30,4 @@ With all that out of the way, on to the documentation!
 | H6199   | [Click Here](Products/H6199.md) |             |
 
 ## Contributing
-Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
+Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to expand this repo to as many products to serve as a hub for reverse enginering Govee's products.
