@@ -22,12 +22,16 @@ With all that out of the way, on to the documentation!
 | H5082   | [Click Here](Products/H5082) |             |
 | H5086   | [Click Here](Products/H5086.md) |             |
 | H6001   | [Click Here](Products/H6001.md) |             |
+| H6004   | [Click Here](Products/H6004.md) |             |
+| H6005   | [Click Here](Products/H6005.md) |             |
 | H6053   | [Click Here](Products/H6053.md) |             |
 | H6072   | [Click Here](Products/H6072.md) |             |
 | H6102   | [Click Here](Products/H6102.md) |             |
 | H6113   | [Click Here](Products/H6113.md) |             |
 | H6127   | [Click Here](Products/H6127.md) |             |
 | H6199   | [Click Here](Products/H6199.md) |             |
+| H619D   | [Click Here](Products/H619D.md) |             |
+| H61F6   | [Click Here](Products/H61F6.md) |             |
 
 ## Contributing
 Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
