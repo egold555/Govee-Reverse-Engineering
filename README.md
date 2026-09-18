@@ -24,11 +24,11 @@ With all that out of the way, on to the documentation!
 | H6001   | [Click Here](Products/H6001.md) |             |
 | H6004   | [Click Here](Products/H6004.md) |             |
 | H6005   | [Click Here](Products/H6005.md) |             |
-| H600B   | [Click Here](Products/H600B.md) ([code](Products/H600B)) |             |
+| H600B   | [Click Here](Products/H600B.md) |             |
 | H6053   | [Click Here](Products/H6053.md) |             |
-| H6061   | [Click Here](Products/H6061.md) ([code](Products/H6061)) |             |
+| H6061   | [Click Here](Products/H6061.md) |             |
 | H6072   | [Click Here](Products/H6072.md) |             |
-| H6088   | [Click Here](Products/H6088.md) ([code](Products/H6088)) |             |
+| H6088   | [Click Here](Products/H6088.md) |             |
 | H6102   | [Click Here](Products/H6102.md) |             |
 | H6113   | [Click Here](Products/H6113.md) |             |
 | H6127   | [Click Here](Products/H6127.md) |             |
