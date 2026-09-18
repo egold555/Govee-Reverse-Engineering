@@ -23,15 +23,20 @@ logger = logging.getLogger(__name__)
 # logger.level = logging.DEBUG
 
 
-async def wait_aa(q, cmd, timeout=3.0):
+async def wait_aa(q, cmd, extra=b"", timeout=3.0):
     deadline = asyncio.get_event_loop().time() + timeout
     while True:
         remaining = deadline - asyncio.get_event_loop().time()
         if remaining <= 0:
             raise TimeoutError("no aa %02x notify" % cmd)
         pkt = await asyncio.wait_for(q.get(), remaining)
-        if len(pkt) >= 2 and pkt[0] == 0xAA and pkt[1] == cmd:
-            return pkt
+        if len(pkt) < 2 + len(extra):
+            continue
+        if pkt[0] != 0xAA or pkt[1] != cmd:
+            continue
+        if extra and pkt[2 : 2 + len(extra)] != extra:
+            continue
+        return pkt
 
 
 async def main():
@@ -63,8 +68,10 @@ async def main():
         colors = []
         for page in (1, 2, 3):
             await send(client, pkt_aa(0xA5, bytes([page])))
-            pkt = await wait_aa(q, 0xA5)
-            _page, slots = parse_aaa5(pkt)
+            pkt = await wait_aa(q, 0xA5, extra=bytes([page]))
+            got, slots = parse_aaa5(pkt)
+            if got != page:
+                raise RuntimeError("aa a5 page %s, got %s" % (page, got))
             colors.extend(slots)
             await asyncio.sleep(0.08)
 
