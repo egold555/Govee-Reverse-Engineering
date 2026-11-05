@@ -35,6 +35,8 @@ With all that out of the way, on to the documentation!
 | H6199   | [Click Here](Products/H6199.md) |             |
 | H619D   | [Click Here](Products/H619D.md) |             |
 | H61F6   | [Click Here](Products/H61F6.md) |             |
+| H6870   | [Click Here](Products/H6870.md) |             |
+| H6871   | [Click Here](Products/H6871.md) |             |
 
 ## Contributing
 Please feel free to make pull requests or issues with new products, or updated documentation for existing products. I want to exmand this repo to as many products to serve as a hub for reverse enginering Govee's products.
